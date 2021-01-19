@@ -44,6 +44,12 @@ namespace Tic_Tac_Toe
             this.C1 = new System.Windows.Forms.Button();
             this.C2 = new System.Windows.Forms.Button();
             this.C3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.xCount = new System.Windows.Forms.Label();
+            this.drawCount = new System.Windows.Forms.Label();
+            this.oCount = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +111,8 @@ namespace Tic_Tac_Toe
             this.A1.TabIndex = 1;
             this.A1.UseVisualStyleBackColor = true;
             this.A1.Click += new System.EventHandler(this.buttonClick);
+            this.A1.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.A1.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // A2
             // 
@@ -115,6 +123,8 @@ namespace Tic_Tac_Toe
             this.A2.TabIndex = 2;
             this.A2.UseVisualStyleBackColor = true;
             this.A2.Click += new System.EventHandler(this.buttonClick);
+            this.A2.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.A2.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // A3
             // 
@@ -125,6 +135,8 @@ namespace Tic_Tac_Toe
             this.A3.TabIndex = 3;
             this.A3.UseVisualStyleBackColor = true;
             this.A3.Click += new System.EventHandler(this.buttonClick);
+            this.A3.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.A3.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // B1
             // 
@@ -135,6 +147,8 @@ namespace Tic_Tac_Toe
             this.B1.TabIndex = 4;
             this.B1.UseVisualStyleBackColor = true;
             this.B1.Click += new System.EventHandler(this.buttonClick);
+            this.B1.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.B1.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // B2
             // 
@@ -145,6 +159,8 @@ namespace Tic_Tac_Toe
             this.B2.TabIndex = 5;
             this.B2.UseVisualStyleBackColor = true;
             this.B2.Click += new System.EventHandler(this.buttonClick);
+            this.B2.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.B2.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // B3
             // 
@@ -155,6 +171,8 @@ namespace Tic_Tac_Toe
             this.B3.TabIndex = 6;
             this.B3.UseVisualStyleBackColor = true;
             this.B3.Click += new System.EventHandler(this.buttonClick);
+            this.B3.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.B3.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // C1
             // 
@@ -165,6 +183,8 @@ namespace Tic_Tac_Toe
             this.C1.TabIndex = 7;
             this.C1.UseVisualStyleBackColor = true;
             this.C1.Click += new System.EventHandler(this.buttonClick);
+            this.C1.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.C1.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // C2
             // 
@@ -175,6 +195,8 @@ namespace Tic_Tac_Toe
             this.C2.TabIndex = 8;
             this.C2.UseVisualStyleBackColor = true;
             this.C2.Click += new System.EventHandler(this.buttonClick);
+            this.C2.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.C2.MouseLeave += new System.EventHandler(this.buttonLeave);
             // 
             // C3
             // 
@@ -185,12 +207,86 @@ namespace Tic_Tac_Toe
             this.C3.TabIndex = 9;
             this.C3.UseVisualStyleBackColor = true;
             this.C3.Click += new System.EventHandler(this.buttonClick);
+            this.C3.MouseEnter += new System.EventHandler(this.buttonEnter);
+            this.C3.MouseLeave += new System.EventHandler(this.buttonLeave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 290);
+            this.label1.MaximumSize = new System.Drawing.Size(80, 13);
+            this.label1.MinimumSize = new System.Drawing.Size(80, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "X Győzelmek";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(98, 290);
+            this.label2.MaximumSize = new System.Drawing.Size(76, 13);
+            this.label2.MinimumSize = new System.Drawing.Size(76, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Döntetlenek";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(181, 290);
+            this.label3.MaximumSize = new System.Drawing.Size(81, 13);
+            this.label3.MinimumSize = new System.Drawing.Size(81, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "O Győzelmek";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // xCount
+            // 
+            this.xCount.AutoSize = true;
+            this.xCount.Location = new System.Drawing.Point(44, 307);
+            this.xCount.Name = "xCount";
+            this.xCount.Size = new System.Drawing.Size(13, 13);
+            this.xCount.TabIndex = 13;
+            this.xCount.Text = "0";
+            // 
+            // drawCount
+            // 
+            this.drawCount.AutoSize = true;
+            this.drawCount.Location = new System.Drawing.Point(126, 307);
+            this.drawCount.Name = "drawCount";
+            this.drawCount.Size = new System.Drawing.Size(13, 13);
+            this.drawCount.TabIndex = 14;
+            this.drawCount.Text = "0";
+            // 
+            // oCount
+            // 
+            this.oCount.AutoSize = true;
+            this.oCount.Location = new System.Drawing.Point(215, 307);
+            this.oCount.Name = "oCount";
+            this.oCount.Size = new System.Drawing.Size(13, 13);
+            this.oCount.TabIndex = 15;
+            this.oCount.Text = "0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 287);
+            this.ClientSize = new System.Drawing.Size(275, 350);
+            this.Controls.Add(this.oCount);
+            this.Controls.Add(this.drawCount);
+            this.Controls.Add(this.xCount);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.C3);
             this.Controls.Add(this.C2);
             this.Controls.Add(this.C1);
@@ -202,9 +298,12 @@ namespace Tic_Tac_Toe
             this.Controls.Add(this.A1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tic Tac Toe";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -229,6 +328,12 @@ namespace Tic_Tac_Toe
         private System.Windows.Forms.Button C1;
         private System.Windows.Forms.Button C2;
         private System.Windows.Forms.Button C3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label xCount;
+        private System.Windows.Forms.Label drawCount;
+        private System.Windows.Forms.Label oCount;
     }
 }
 

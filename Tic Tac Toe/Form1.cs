@@ -14,18 +14,26 @@ namespace Tic_Tac_Toe
     public partial class Form1 : Form
     {
 
-        bool turn = true; // true = X köre, false = Y köre
+        bool turn = true; // true = X köre, false = O köre
         int turnCount = 0;
+        private static String player1, player2;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        public static void SetPlayerNames(String n1, String n2)
+        {
+            player1 = n1;
+            player2 = n2;
+        }
+        // A játékról
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) 
         {
             MessageBox.Show("Készítette: Törköly Csaba", "Tic Tac Toe");
         }
 
+        // Kilépés
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -34,11 +42,11 @@ namespace Tic_Tac_Toe
         private void buttonClick(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            if (turn)
+            if (turn) 
                 b.Text = "X";
-            else
+            else 
                 b.Text = "O";
-
+               
             turn = !turn;
             b.Enabled = false;
 
@@ -77,17 +85,27 @@ namespace Tic_Tac_Toe
                 buttonDisable();
 
                 String winner = "";
-                if (turn)
-                    winner = "O";
-                else
-                    winner = "X";
+                if (turn) // Ha true, O nyer, mivel ő fejezte be az előző kört
+                {
+                    winner = player2;
+                    oCount.Text = (Int32.Parse(oCount.Text) + 1).ToString();
+                } 
+
+                else // Ha false, X nyer, mivel ő fejezte be az előző kört
+                {
+                    winner = player1;
+                    xCount.Text = (Int32.Parse(xCount.Text) + 1).ToString();
+                }
 
                 MessageBox.Show(winner + " Győzött!", "Játék vége");
             }
             else
             {
                 if (turnCount == 9)
-                    MessageBox.Show("Döntetlen!", "Játék vége");
+                {
+                    drawCount.Text = (Int32.Parse(drawCount.Text) + 1).ToString();
+                     MessageBox.Show("Döntetlen!", "Játék vége");
+                }
             }
 
         }
@@ -111,17 +129,45 @@ namespace Tic_Tac_Toe
             turn = true;
             turnCount = 0;
 
-            try
+            foreach (Control c in Controls)
             {
-                foreach (Control c in Controls)
+                try
                 {
-                    Button b = (Button)c;
+                    Button b = (Button) c;
                     b.Enabled = true;
                     b.Text = "";
                 }
+                catch { }
             }
-            catch { }
         }
 
+        private void buttonEnter(object sender, EventArgs e) // kinek a köre
+        {
+            Button b = (Button)sender;
+            if (b.Enabled) 
+            {
+            if (turn)
+                b.Text = "X";
+            else
+                b.Text = "O";
+            }
+        }
+
+        private void buttonLeave(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Enabled)
+            {
+                b.Text = "";
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+            label1.Text = player1;
+            label3.Text = player2;
+        }
     }
 }
